@@ -1,6 +1,7 @@
 import './App.css';
 import {useGetLaunches} from "./api/useGetLaunches";
 import {useCallback, useRef, useState} from "react";
+import Card from "./component/Card";
 
 function App() {
     const [page, setPage] = useState(0)
@@ -19,28 +20,15 @@ function App() {
     }, [loading])
 
     return (
-        <div className="App">
-            <div style={{display:'flex',flexDirection:'column',maxWidth:'300px', maxHeight:"700px"}}>
+        <div className="App" style={{backgroundColor:"#282c34", overflowY:'auto',display:'flex',alignItems:'center', justifyContent:'center'}} >
+            <div style={{display:'flex',flexDirection:'column',maxWidth:'600px', maxHeight:"700px", color:'white'}}>
                 {data?.map((launch, index) => {
                     if (data.length === index + 1) {
                         return (
-                            <div key={index} ref={lastLaunch} style={{border:'1px solid red', margin:'20px 0'}}>
-                                <img src={launch.links.flickr_images[0]} style={{width:'100px', height:'100px', objectFit:'cover'}}/>
-                                <div>
-                                    <h1>{launch.mission_name}</h1>
-                                    <p>{launch.details}</p>
-                                </div>
-
-                            </div>)
+                            <Card reference={lastLaunch} mission_name={launch.mission_name} details={launch.details} src={launch.links.flickr_images[0]} />)
                     }else{
                         return (
-                            <div key={index} style={{border:'1px solid red', margin:'20px 0'}}>
-                                <img src={launch.links.flickr_images[0]} style={{width:'100px', height:'100px', objectFit:'cover'}}/>
-                                <div>
-                                    <h1>{launch.mission_name}</h1>
-                                    <p>{launch.details}</p>
-                                </div>
-                            </div>)
+                            <Card reference={null} mission_name={launch.mission_name} details={launch.details} src={launch.links.flickr_images[0]} />)
                     }
 
                 })}
@@ -48,7 +36,10 @@ function App() {
                     error && <h1>{error}</h1>
                 }
                 {
-                    loading && <h1 style={{padding:'20px 0'}}>Loading...</h1>
+                    loading &&
+                        <div style={{width:'600px',border: "1px solid #5a6472",backgroundColor:"#2c323a",borderRadius:'10px'}}>
+                            <h1 style={{padding:'20px 0'}}>Loading...</h1>
+                        </div>
                 }
             </div>
         </div>

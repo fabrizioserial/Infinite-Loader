@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# ♾️ Infinite Loader Example ♾
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an example of how an infinite loader can be implemented in a React application.
 
-## Available Scripts
+![Alt Text](./public/example_gif.gif)
 
-In the project directory, you can run:
+### 🤔 What is an infinite loader? 
 
-### `npm start`
+An Infinite Loader is a frontend technique that allows to load more content when the user scrolls to the bottom of the page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🛠️ How does it work? 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To accomplish this technique, we have to have 2 main components:
+* List query with pagination 
+* A component to display the list of items
 
-### `npm test`
+The list query is a query that returns a list of items and a pagination object.
+The pagination object contains the information of the current page, the total number of pages and the total number of items.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The component to display the list of items is a component that receives the list of items and the pagination object and displays the list of items.
+The last item has a reference that when is display in the screen, it triggers a function to load more items.
 
-### `npm run build`
+### 📚 How to run the project?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the project
+2. run `npm install`
+3. run `npm start`
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5. Enjoy!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Future Improvements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* When the items are not displayed in the screen, they should be removed from the DOM to avoid memory leaks.
 
-### `npm run eject`
+An important advantage of this approach is that the DOM will not contain elements that are not displayed. This will allow us to have a better performance in the application.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
